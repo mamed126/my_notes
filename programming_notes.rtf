@@ -1,0 +1,311 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset238 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl240\slmult1\qc\b\f0\fs22\lang9 c# interview questions\par
+
+\pard\sa200\sl240\slmult1\qj\b0\par
+\b 1.const,readonly\b0\par
+const compile time -dir, bir primitiv tipere ve stringe tetbiq edile bilir.elan olunduqda deyer verilmelidir ve runtime -da onu deyismek olmaz;readonly object-e de tetbiq edile biler, constructordan basqa diger metodun daxlinde deyisdirmek mumkun deyil;\par
+\b 2.Encapsulation,Inheritance,Polymorphism\b0\par
+\ul Encapsulation\ulnone - klass yaxud strukturun oz memberlerine limitli access temin etmesidir;yeniki bu klass xaricinde gorunmesi istenmeyen uzvler gizletmek olar;\par
+\ul Inheritance\ulnone - varislik olub, bir diger klasin davranislarini istifade eden, onu deyisdire bilen mexanizmdir;torenen klass derived, parent klass base adlanir.c#-da bir klasin ancaq bir base classi ola biler.\par
+\ul Polymorhism\ulnone - base classda var olan metodun derived class-da ferqli islemesini temin eden mexanizmdir.Bu mexanizm metodlarin base classda virtual tanimlanib derived classda override edilmesi ie mumkundur.bir diger sekil ise bir klasin daxilinde eyni metodun fergli prametrlerle istifade edilmesidir.bu mexanizmin adi is method overloading-dir;\par
+3.ref,in,out\par
+\ul ref\ulnone - metoda gonderilen parametrin deyisdirile bileceyini deyir (may); gonderilen parametre deyer verilmelidir;\par
+\ul in\ulnone -  metoda gonderilen parametrin deyisdirilmesini qadagan edir (cannot); c# 7.2 ve sonraki versiyalarda vardir;\par
+\ul out\ulnone - metoda gonderilen parametrin deyisdirilmeli oldugunu deyir (must);\par
+     gonderilen parametre evvelceden deyer verilmesi vacib deyil, \par
+     ancaq metod daxilinde deyer verilmelidir;\par
+\b 4.object and dynamic and var\b0\par
+\ul object \ulnone system.object-in qisaltmasidir ve butun klasslar ucun temel klasdir;\par
+bu tipde parametr compile time control edilir. meselen object _num=5;_num=_num+5; yazsaq xeta alariq. _num=(int)_num+5 (unboxing) ederek xetani aradan qaldira bilerik; yeniki object bir tipi unboxing edin mutleq tipini mueyyen etmeliyik.\par
+\ul dynamic \ulnone -de ise parametrlerin tipi runtime-da kontrol edilir ve duzgun deyilse RuntimeBinderException tipinde xeta geri dondurur; var dynamicle benzerdir,her hansi bir tipde deyer ala bilir, ferqli olaraq baslangic deyeri null ola bilmez ve deyisen baslangicda hansi tip deyer alarsa sona qeder hemin tipde qalmalidir;\par
+\b 5.virtual ve abstract methodlar\b0\par
+\ul abstract \ulnone metodlar govdesi yoxdur (implementation) ve derived classin hemin metodu implement etmesi mecburidir; \par
+\ul virtual \ulnone metodlar govdesi var, derived class onu ehtiyac olarsa override ede biler; her iki method private ola bilmez;\par
+\b 6.boxing, unboxing\b0\par
+\ul boxing\ulnone - value type in object type-a cevrilmesidir; int x=1;object y=x; biz eger x=2 yazsaq, y helede kohne deyerini saxlayacaq, cunki x-in kopyasini ayirib ozu ucun onu referans etmisdir;\par
+\ul unboxing\ulnone - object tipinin deyer tipine (value type) cevrilmesidir; \par
+int x=1;object o=i;int y=(int)o; ehtiyac olmadiqca boxing ve unboxing etmemek lazimdir; normal bir deyer verme ile muqayisede boxing 20,unboxing 4 defe uzun surmekdedir;\par
+\b 7.method overloading\b0\par
+methodun parametr sayini yaxud tipini deyismekle bir nece orneyini implement olunmasidir;\par
+void do_work(string x);void do_work(int x);void do_work(string x,int y);\par
+\b 8.value ve reference typelar\b0\par
+\ul value typelar \ulnone ram-da stackda reference typelar ise heap-da tutulur; value type null deyere sahib ola bilmez; temel tipler (int,double ve s) value, her hansi classin tipi olan tipler ise \ul reference tiplerdir \ulnone (object,string ve s); iki value type bir birine beraberlesdirilerse onlarin deyerleri kopyalanaraq iki musteqil deyer elde ediler; birinin deyisdirilmesi digerinin deyerine tesir etmez; iki reference type beraberlesdirilerse deyisiklik ancaq heap bolgesinde olacaq, ancaq onlarin reference aldigi adres eyni oldugu ucun birinin deyerini deyisdirsek digerinin de deyeri deyisecek\par
+\b 9.Abstract class ,interface\par
+\ul\b0 abstract class \ulnone static metodlar saxlaya biler; abstract class-da metodlarin govdeleri olur, interfacelerde ancaq metodlarin imzasi olur; abstract class-da constructor ve destructor ola biler; abstract class-da metodlar her access modifier-e sahib ola biler, \par
+\ul interfacede \ulnone ise ancaq public metodlar ola biler; abstract classin yalniz bir base klasi ola biler, interface ise bir nece interfaceden  inherit edile biler; abstract klass is-a elaqesi ucun, interface can-do ucun daha cox istifade edilmelidir;\par
+\b 10.sealed keyword \b0\par
+bir classin base class olmasinin engelleyen keyworddur, her hansi class sealed olaraq tanimlansa ondan miras almaq olmaz;\par
+\b 11.string interpolation\par
+\b0 string deiskenin basina $ yazilaraq lazimi formatlama mexanizmidir;\par
+\b 12.abstract ve virtual method ferqi\par
+\ul\b0 abstract \ulnone metodlarin govdesi olmur ve derived class implement etmeyi mecburidir;\par
+\ul virtual \ulnone metodun govdesi olur (void istisna) ve derived class onu override ede biler ancaq mecburi deyil;\par
+\b 13.generics \par
+\b0 interface,metod,parametrelrin belli bir tip ucun yox, belli bir sablon kimi design edilmesine imakn veren mexanizmdir; runtime-da gereksiz castint, boxing/unboxing onlediyi ucun performans qazandirir; compile time-da safe-type parametrler istifade etdii ucun type conversion xetalarini azaldir;\par
+\b 14.using statement\b0\par
+IDisposible interfaceden inherit olunmus obyektler using()\{\} bloku icerisinde yaranarsa blokdan cixanda gc dovreye girer ve obyekti dispose etmis olar.\par
+\b 15.internal ve protected\par
+\ul\b0 internal \ulnone tanimlanin obyekte eyni namespace altindadirsa cata bilerik;default olaraq class internaldir;\par
+\ul protected \ulnone tanimlanan obyekte tanimlandigi klass ve derived classlardan catmaq mumkundur;\par
+\b 16.== ve equals()\b0\par
+her ikisi deyeri qarsilasdirmaq ucun istifde edilir;\par
+equals objectin string deyerini qarsilasdirir, == ise obyektlerin reference deyerini qarsilasdirir; equals null deyere sahib obyektleri qarsilasdirarken xeta geri dondurur;\par
+\b 17.extension methods\b0\par
+extension metodlar bir tipi deyisdirmeden ona yeni metodlar elave etmemizi temin edir;\par
+public static bir class yaradilir, yaratmaq istediyimiz metod da static olur;\par
+metodun parametrlerinde hansi tip ile isleyeceyimiz this keywordu ile tanidilir;\par
+\b 18.partial class ve metodlar\b0\par
+partial class bir classin source-nu ferqli filelarda saxlamaga imkan veren mexanizmdir; partial metodlarda eynile buna benzerdir:p metodlardan biri imza digeri govde ucun olmalidir, void olmalidir;out parametrler ala bilmezler ancaq ref ala bilerler;virtual ola bilmezler,ancaq static ve generic ola bilerler; artial metodlar private modifiere sahibdirler ve delegate ile temsil oluna bilmezler;\par
+\b 19.c#-da metoda parametr oturmeyin yollari\b0\par
+-pass by value\par
+-pass by reference(ref keyword)\par
+-output parameters(out keyword)\par
+\b 20.IDisposable pattern\b0\par
+class VeriYonetim:IDisposable\par
+\{\par
+    ~VeriYonetim()\par
+    \{\par
+        Dispose(false);\par
+    \}\par
+     protected virtual void Dispose(bool disposeDurumu)\par
+    \{\par
+        if(disposeDurumu==true)\par
+        \{\par
+            // Managed kaynaklar i\'e7in Dispose metodu uygulan\f1\u305?r.\par
+        \}\par
+        // UnManaged kaynaklar temizlenir.\par
+    \}\par
+    #region IDisposable Members\par
+    public void Dispose()\par
+    \{\par
+        Dispose(true);\par
+        GC.SuppressFinalize(this);\par
+    \}\par
+    #endregion\par
+\}\par
+\b 21.Async programming in c#\b0\par
+wait- taskin basa catmasi ucun muddet teyin etmek, taski saxlamaq kimi emeliyyatlari etmeye imkan verir;\par
+waitAll-eyni seyi tasklar ucun etmeyi mumkun qilir;\par
+waitAny- yuxaridaki emeliyyatlari tasklardan her hansi biri basa catdiqda ede bilir;\par
+whenAny- tasklardan hansisa biri bitende task qaytarir;\par
+whenAll- butun tasklar bitende task qaytarir;\par
+\b 22.Exception handling async methods\b0\par
+ public static async Task ExceptionInAsyncCodeDemo()\par
+        \{\par
+            Task tasks = null;\par
+            try\par
+            \{\par
+                var task1 = Task.Run(() => throw new IndexOutOfRangeException\par
+                   ("IndexOutOfRangeException is thrown."));\par
+                var task2 = Task.Run(() => throw new\par
+                   ArithmeticException("ArithmeticException is thrown."));\par
+                tasks = Task.WhenAll(task1, task2);\par
+                await tasks;\par
+            \}\par
+            catch\par
+            \{\par
+                AggregateException aggregateException = tasks.Exception;\par
+                foreach (var e in aggregateException.InnerExceptions)\par
+                \{\par
+                    MessageBox.Show($"Error occured! Exp message:\{e.Message\}, stack trace:\{e.StackTrace\}");\par
+                \}\par
+            \}\par
+        \}\par
+\par
+\b 22.Covariance ve Contravariance\b0\par
+\ul covariance\ulnone : genislenmis bir tipin daha az genis bir tipe cevrilmesi:\par
+string x='test'; object y=x; \par
+object temel base klassdir,string ona nisbetde daha cox genislenmis classdir,(more-derived);\par
+\ul contravariance \ulnone bu elaqenin eksidir;\par
+\b 23.static ve non-static class ferqi\b0\par
+static class private constructora malik ve static metodlara malik non-statik bir klassdir;\par
+en esas ferqi odurki statik klassi new deyib yarada bilmerik;\f0\lang1033  \f1\lang9 tatic klass her hansi diger klass ucun base ola bilmez (sealed);\f0\lang1033  \f1\lang9 zleri de object-den basqa hec neden derive ola bilmez;\par
+
+\pard\sa200\sl240\slmult1\qc\b\f0\lang1033 ENTITY FRAMEWORK\b0\f1\lang9\par
+
+\pard\sa200\sl240\slmult1\qj\b 1.lazy loading\b0\par
+tutaqki product  ve category kimi iki table var.\f0\lang1033  \f1\lang9 biz her categoryde nece product oldugunu tapmaga calisiriq.\f0\lang1033  \f1\lang9 dbContext obyekt initial olunarken default lazy loading aktiv oldugu ucun,\f0\lang1033  \f1\lang9 evvel categoryler listelenecek, sonra her category ucun product sayini tapan sorgu calisacaq;\f0\lang1033  \f1\lang9 ancaq lazy loadingi deaktiv etsek bu melumat ucun bir sorgu calisacaq;\par
+//lazy loading\par
+using (NorthwindDataContext northContext = new NorthwindDataContext())\par
+            \{\par
+                // northContext.Log = Console.Out; // \u304?sterseniz SQL sorgular\u305?n\u305? Console \f0\'e7\f1\u305?kt\u305?s\u305?ndan da takip edebilirsiniz.\par
+                 \par
+                foreach (Category category in northContext.Categories)\par
+                \{\par
+                    Console.WriteLine("Category Name :\{0\} (\{1\})", category.CategoryName, category.Products.Count);\par
+                \}\par
+            \}\par
+\par
+//eager loading\par
+include ve includethen metodlari istifade edilmekle istifade edilir\par
+\par
+using (var context = new DbContext())\par
+\{\par
+    // Lazy loading varsayilan olarak aciktir. Bunu eager loading'te kapat\u305?yoruz.\par
+    db.Configuration.LazyLoadingEnabled = false;\par
+    \par
+    // Burada lazy loading'te oldu\u287?u gibi 2 farkl\u305? sorgu \f0\'e7al\f1\u305?\'bamaz\par
+    // 2. foreach i\f0\'e7in otomatik sql sorgusu \'e7al\f1\u305?\'bamas\u305? yerine tek bir sorgu ile ili\'bakisel veriler \f0\'e7ekilir\par
+    var kullaniciListesi = context.Kullanici\par
+        Include(x => x.KullaniciAdresleri)\par
+        //.Include("KullaniciAdresleri") // Bu \f1\'baekilde de yazabilirsiniz\par
+        .ToList();\par
+\par
+    foreach (var kullanici in kullaniciListesi)\par
+    \{\par
+        Console.Log(kullanici.Id + " - " + kullanici.KullaniciAdi);\par
+\par
+        foreach (var adres in kullanici.KullaniciAdresleri)\par
+        \{\par
+            Console.Log(" " + adres.AdresTanimi + " - " + adres.Adres)\par
+        \}\par
+    \}    \par
+\}\par
+\par
+\b 2.Entity propertileri\b0\par
+[Column("blog_id")]\par
+[Column(TypeName = "varchar(200)")]\par
+[MaxLength(500)]\par
+[Required]\par
+[Comment("The URL of the blog")]\par
+\b 3.relationships terms\par
+\b0 -dependent entity- child yaxud foreign key saxlayan object;\par
+-principal entity- parent yaxud primary key saxlayan obyekt;\par
+\b 4.linq joins\b0\par
+-inner join\par
+var query = from photo in context.Set<PersonPhoto>()\par
+            join person in context.Set<Person>()\par
+                on photo.PersonPhotoId equals person.PhotoId\par
+            select new \{ person, photo \};\par
+-left join\par
+var query = from b in context.Set<Blog>()\par
+            join p in context.Set<Post>()\par
+                on b.BlogId equals p.BlogId into grouping\par
+            from p in grouping.DefaultIfEmpty()\par
+            select new \{ b, p \};\par
+\par
+\b 5.raw sql query\b0\par
+var user = "johndoe";\par
+var blogs = context.Blogs\par
+    .FromSqlRaw("EXECUTE dbo.GetMostPopularBlogsForUser \{0\}", user)\par
+    .ToList();\par
+
+\pard\sa200\sl240\slmult1\qc\b\f0\lang1033 WEB PI  ASP.NET CORE\b0\f1\lang9\par
+
+\pard\sa200\sl240\slmult1\qj\b 1.soap rest ferqleri\b0\par
+-soap ancaq xml ile isleyir, rest ise json,xml ve textle isleye biler;\par
+-suret baximindan rest daha yaxsidir;\par
+-rest-de dasinan data hecmi daha azdir;\par
+ rest http metodlarini get,post,put,delete istifade edir,\par
+-soap ise rpc (remote procedure call) mexanizmi ile calisir;\par
+-rest ancaq http protokolu ile isley bilir,soap ise elave olaraq tcp ve smtp ile de calisa biler;\par
+-security meselesine gore soap daha ustundur;\par
+\b 2.asp.net 4.x ve asp.net core ferqleri\b0\par
+-core cross_platformdur,digeri windows ucundur;\par
+-core -da ui ucun razor page vardir;\par
+-core performance cehetden daha ustundur;\par
+-core-da blazor vardirki, javascript evezine c# kodlari yazmaga imkn verir\par
+ IIS-den basqa Kestrel,Apachi,Dockerle hosting imkanlari vardir;\par
+\b 3..net core ve .net frmework ferqleri\b0\par
+- core crossplatformdur;\par
+- core docker containnerlerde isleye bilir;\par
+- core microservice arxitekturasina hedefleyir;\par
+- core daha yuksek performansa sahibdir;\par
+\b 4.startup class\b0\par
+lazim olan servisleri ve request handling pipeline ozunde saxlayir;\f0\lang1033  \f1\lang9 servisler reusable komponentler olub configureServices metodu daxilinde register olunur,\f0\lang1033  \f1\lang9 daha sonra DI vasitesile controllerde ve s. yerlerde istifade edile bilir;\f0\lang1033  \f1\lang9 pipeline-i mueyyen etmek ucun ise\f0\lang1033  \f1\lang9 Configure metodu istifade edilir.\par
+\b 5.dependency injection\b0\par
+obyektlerin bir birinden asililigini minimuma endirmek ucun istifade edilen bir mexanizimdir;\f0\lang1033  \f1\lang9 obyektlerin bir basa ozleri ile yox, toredildikleri interfacelerle calismaqla,\f0\lang1033  \f1\lang9 sonraki deyisikliklerde app-da duzelis edilecek hisselerin miqyasini minimuma endirmek ucundur;\par
+interface ve konkret obyekt arasinda baglanti yaradilarken uc yasam dongusu movcud ola biler:\par
+-transient- her request-de obyekt yeniden yaradilir;\par
+-singleton- obyekt bir defe yaradilir ve app her yerinde istifade edilir;\par
+-scoped- obyekt request sona catana qeder istifade edilir , yeni bir request geldikde yenisi yaradilir;\par
+transient-de her obyekt cagirilanda instance yaradilarken, scoped-da her request-de instance yaradilir\f0\lang1033  \f1\lang9 ve request sona catana qeder hemin instance istifade edilir;\par
+\b 6.middleware\b0\par
+request-response pipeline-i handle etmeye imkan veren, classlardir;\f0\lang1033  \f1\lang9 hansiki bu classlari istifade edrek pipeline gelen reuestleri modify ede bilerik, \f0\lang1033  \f1\lang9 headerleri check ede bierik, authorization integre ed bilerik ve s.\f0\lang1033  \f1\lang9 bir sozle request ve response arasinda kecen addimlara daxil olub orda istediyimiz bir cox emeliyyati heyata kecire bilerik;\f0\lang1033  \f1\lang9 yeni bir middleware yazmaq ucun class yaradilir , extension metod elave ederek ona istediyimiz funksionalliq verilir;\f0\lang1033  \f1\lang9 ve configure metodu icerisinde yeni middleware aktiv edilir;\par
+\b 7.web api action return types\par
+\b0 Specific type\par
+IActionResult\{ok,notfound,content,file,redirect,badrequest ve s)\par
+ActionResult<T>\par
+\b 8.format response data\b0\par
+\b 9.custom formatters\b0\par
+custom formatter yaratmaq ucun built-in formatter classla vardir \par
+(TextOutputFormatter, JsonOutputFormatter, and XmlDataContractSerializerOutputFormatter ve s),\par
+hemin classlardan derive olunmus class yaratmaq lazimdir, daha sonra configureServices icerisinde AddMvc icerisinde\par
+yeni formatter elave etmek lazimdir;\par
+\b 10.filters and attributes\b0\par
+filterler request handle pipeline da her hansi bir stageden evvel yaxud sonra gedisata mudaxile etmeye imkan veren mexanizmdir;\f0\lang1033  \f1\lang9 asagidaki kimi filter tipleri movcuddur:\par
+-authorization filters ilk devreye giren filterlerdir,metodlardan evvel devreye gire bilir, sonra gire bilmir;\par
+[Authorize(Roles = "PowerUser")]\par
+[Authorize(Roles = "ControlPanelUser")]\par
+public class ControlPanelController : Controller\par
+\{\par
+\} misaldan gorunduyu kimi atribut vasitesile role based autorization checking teyin etmek olur;\par
+-\ul resource filters \ulnone authorization-dan sonra devreye girir  IActionFilter or IAsyncActionFilter interface-lerini implement edir,\par
+OnActionExecuting ve OnActionExecuted metodlarini override ederek context obyekti uzerinde deyisiklikler ve s. etmeye imkan verir;\par
+-\ul action filters  \ulnone action method dan evvel yaxud sonra ise dusub, giris parametrlerini deyisdirmeye,\par
+action'nin qaytardigi datani deyisdirmeye imkan verir;\f0\lang1033  \f1\lang9 razor pages -e tetbiq edile bilmir, razor pages IPageFilter i support edir;\f0\lang1033  \f1\lang9 action filters IActionFilter interfceni implement edir ve OnActionExecuting,OnActionExecuted metodlarini override ederek \f0\lang1033  \f1\lang9 context uzerinde evvel ve sonra emeliyyat etmeye imkan verir;\par
+-\ul exception filters\f0\lang1033  \f1\lang9  \ulnone IExceptionFilter interfce-ni implement edir;\par
+onException metodu ile exception-i tutmaq ve emeliyyat etmeye imkan verir;\f0\lang1033  \f1\lang9 controller creation, model binding, action filters, or action methods larin icrasi zamani devreye gire bilir;\f0\lang1033  \f1\lang9 resource filters, result filters ile bas veren exeptionlari tuta bilmir;\par
+[TypeFilter(typeof(CustomExceptionFilter))]\par
+public class FailingController : Controller\par
+\{\par
+    [AddHeader("Failing Controller", \par
+               "Won't appear when exception is handled")]\par
+    public IActionResult Index()\par
+    \{\par
+        throw new Exception("Testing custom exception filter.");\par
+    \}\par
+\} misaldan gorunduyu kimi controller seviyyesinde exception filter tetbiq edilmisdir;\par
+\par
+\b 11.Authentication and authorization\par
+\b0\par
+
+\pard\sa200\sl240\slmult1\qc\b\f0\lang1033 SOLID PRINCIPLES\b0\f1\lang9\par
+
+\pard\sa200\sl240\slmult1\qj\b 1.solid nedir\b0\par
+s-single responsibility\par
+o-open close\par
+l-liskov substituation\par
+i-interface segregation\par
+d-dependency inversion\par
+\b 2.single responsibility\b0\par
+her klasin deyisdirilmek ucun bir sebeb olmalidir, yaxud her sinifin gormeye mesul oldugu bir is olmalidir;\par
+\b 3.open-close\b0\par
+bir klasin genislendirilmeye aciq (extension),ancaq deyisdirilmeye qapali (modification) olmasini nezerde  tutur;\par
+\b 4.liskov substituation\b0\par
+derived classlarin base classlarin butun imkanarindan istifade edile bilmesini iddia edenprinsipdir;\f0\lang1033  \f1\lang9 B klasinin b\f0\lang1033 a\f1\lang9 se klasi A ise, \f0\lang1033  \f1\lang9 C klasini B-den inherit etmek evezine A-dan inherit edib ozune mexsus davranislari varsa extend edilemsini onerir;\par
+\b 5.interface segregation\b0\par
+bir birinden ferqli responsibility-lerin bir interface-de implement elemek evezine,\f0\lang1033  \f1\lang9 her ferqli responsibility ucun yeni bir interface yaradib,\f0\lang1033  \f1\lang9 concret klasslarda hemin interfacelerin implementation-ni reallasdirmaq lazimdir;\par
+\b 6.dependency inversion\b0\par
+ust seviye klasslarin alt seviyye klasslardan asiligini minimuma endirmeye calismagi oneren bir prinsipdir;\f0\lang1033  \f1\lang9 alt seviyye bir klassda edilen deyisikliyin ust seviyye klassda deyisikliye sebeb olmamali oldugunu deyir.\par
+\b 7.design principles ve patterns ferqi\b0\par
+pattern umumi bir cox problemin hellidir hansiki test edilmisdir ve en yaxsi hell olduguna inanilir;\f0\lang1033  \f1\lang9 prinsipler ise bir sistemi design ederken riayet edlmeli code prinsipleridir, platforma ve dilden asili olmadan varlar;\par
+\b 8.ioc (inversion of control)\b0\par
+programin istifade etdiyi classlarla direct yox interface uzerinden catmasina imkan veren bir mexanizmdir;\f0\lang1033  \f1\lang9 meselen asp.net core -da bele bir mexanizm hazir var oldugu ucun, programda configureServices meodu icerisinde\f0\lang1033  \f1\lang9 imkan varki interface-lerle concrete classlari bir birine baglayasan,bu zaman objectleri uc tip yasam dongusu\f0\lang1033  \f1\lang9 ile tanimamaq mumkundur: \ul scoped,singleton,transient\ulnone ;\f0\lang1033  \f1\lang9 bu mexanizmi manual olaraq factory design patterni tetbiq ederek de qurmaq mumkundur;\par
+\b 9.dry (dont repeat yourself) ve soc (seperation of concerns) nedir\b0\par
+\ul dry\ulnone -bir emeliyyati yerine yetiren bir metodun movcud olmasini tovsiyye eden prinsipdir;\f0\lang1033  \f1\lang9 meselen bir mail adres validation ucun metod yazmisidq \f0\lang1033  \f1\lang9 ve zaman icerisinde bunun tekmil yaxud bir basqasini yazmaq kodu daha qarmaqarisiq \f0\lang1033  \f1\lang9 bir hala getireceyi ucun yolerilmezdir;\f0\lang1033  \par
+\ul\f1\lang9 soc\ulnone - ise ferqli isleri goren modullarin ayri ayri saxlamaq lazim oldugunu deyen prinsipdir;\f0\lang1033  \f1\lang9 meselen logging ve reporting kimi iki modulumuz varsa bunlari bir birinin icerisnde yox ayri-ayri\f0\lang1033  \f1\lang9 saxlamaq daha yaxsidir; mvc ,n-tier , layered arxitektura bu prinsipden gelmedir;\par
+\b 10.kiss prinsipi\par
+\b0 keep it simple stupid;\f0\lang1033  \f1\lang9 bir algoritm yaxud kod yazarken onu mumkun mertebe besit anlasilan yazmagi oneren bir prinsipdir;\par
+\b 11.yagni prinsipi\b0\par
+your arent gonna need it- bir klass dizayn ederken hal hazirda lazim olmayan bir metodu yazmamagimizi,\f0\lang1033  \f1\lang9 eksine hazirda neler lazimdirsa sirf onlari yazmagimizi deyen bir prinsipdir;\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+ \par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\f0\par
+}
+ 

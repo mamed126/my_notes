@@ -1,0 +1,47 @@
+[magnus_chat_app_cloning]
+-sizedBox.shrink;
+-listviewbilder(reverse:true);
+-textField(textCapitalization:);
+-gestureDetector(onTap(){FocusScope.of(context).unfocus();});
+
+[youtube_cloning_tutorial]
+ofstage widget;
+linearProgressbar: alwaysstoppedanimation property;
+image.network fit property;
+text-> maxlines,overflow properties;
+customScrollView;
+column->crossAxisAlignment,mainAxisSize;
+row->mainAxisAlignment;
+padding-> edgeInsets.symmetric;
+
+[clubhouse clone]
+-clipRRect widgets;
+-theme,of(c).textTheme.overline ;
+-text.rich(textSpan());
+-widgetSpan;
+-materialPageRoute(fullscreenDialog:true);
+-customScrollView widget;
+-boxDecoration;
+-sliverGrid.count(childAspectRatio:0.8);
+
+[topics]
+
+*intl paketi;
+********************************************************************************************************************************
+*login/logout app example
+*freezed architecture
+*dependency injection with get
+
+[new things from youtube course]
+
+*https://app.quicktype.io/ (json to model helper)
+*modalRoute.of(context).sentings.arguments: pageler arasi data transferi ucun
+*Theme data - umumi theme datani her hansi widgetde deaktiv edib, 
+ hemin widgete ozel theme yazmaq ucun hemin widgeti theme icerisine atib, 
+ data parametrini aktiv edib yeni stil tanimlamaq olar;
+*focusNode- iki eded textfield varsa ve birine enter basdiqda digerinin focus moda cekmesini temin edir;
+*pushAndRemoveUntil ozunden evveki screenleri baglayir (logout ederken faydali ola biler);
+********************************************************************************************************
+
+ 
+ 

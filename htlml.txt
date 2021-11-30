@@ -1,0 +1,32 @@
+h1-6;
+p;
+br;
+a (href="google.com",target="_blank");
+ul/li;
+img (src,width,heidht,alt);
+table,tr,td,caption;
+
+--text_formating------------------------
+<b>,<strong> //bold;
+<em>,<i> //italic;
+<small>,<sub>,<sup>;
+<ins> //alt_xett;
+<del> //uzeri_cizgili;
+<mark> //uzeri_rengli_yazi;
+
+--layout---------------------------------
+header;
+nav;
+article;
+footer;
+
+--form tags-------------------------------
+form(action);
+input (name="firstName" type="text" );
+<label>;
+input (type="submit" value="buttn_text");
+select (name,size,mutiple),option;
+textarea(name,rows,cols);
+button(onClick);
+
+

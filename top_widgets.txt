@@ -1,0 +1,71 @@
+*container(color,padding,margin,decoration,align,constraints,transform),
+column (,
+row,
+*stack,
+*expanded(flex,) soldan saga,
+*flexible(flex,flexFit.loose,) yuxaridan asagi,
+*safeArea,
+*wrap(direction:Axis.Vertical,alignment,spacing,runSpacing,  ),
+*positioned(top,bottom,left,right,width,height) (positioned.fill(child:,)),
+*constrainedBox(boxConstraints(minHeight,maxWidth),
+
+*padding(),
+
+appBar,
+*sliverAppBar(expandedHeight,flexibleSpace,stretch,onStretchTrigger),
+bottomNavigationBar,
+*drawer,
+*pageView(controller,children,scrollDirection,),
+*tabBar(tabs:[Tab(text:"Tab1"),],),tabBarView(children:[]),defTabController(length:3,child:),tabPageSelector
+
+*alertDialog(title:,content:,actions:[FlatButton("No"),FlatButton("Yes"),],elevation:24,backgroundColor:, shape:CircleBorder(),);
+*snackbar(content:);
+
+card,
+icon,
+*image ->  .file('path',width:,height:,fit:,),
+           .asset('asset_in_yml')
+           .network('url_image',loadingBuilder:(context,child,progress){})
+
+*listview(scrollDirection:,reverse:,physics:,addAutomaticKeepAlives);
+*listTile(leading:icon,trailing:icon,title:,subTitle:,isThreeLine:true,dense:true,onTap:(){},onLongPress:(){},enabled:false,selected:true,);
+*sliverList(delegate:SliverChildListDelegate([widget1,widget2,widget3,],),),
+*sliverGrid .count(children:,crossAxisCount:4)
+            .extent(crossAxisExtent:90)
+*gridview .count(children:[],crossAxisCount:4,mainAxisSpacing:20,crossAxisSpacing:10,),
+*dataTable (columns:[DataColumn(label:,numeric:true)],rows:[DataRow(cells:[DataCell(Text(),showEditIcon:true,placeHolder:true),],selected:true),sortColumnndex:0,sortAscending:true,]),
+
+*fittedBox(fit:Boxfit.contain,child:MyDashPick(),alignment:),
+*align(alingnment:Alignment.topLeft,)
+
+
+*sizedBox(width:double.infinity,height:200,child:,)
+ sizedBox(width:double.infinity,height:double.infinity)=sizedBox.expand();
+
+*mediaQuery,
+ var deviceData=mediaQuery.of(context);
+ var screenSize=deviceData.size;
+ var orientation=deviceData.orientation;
+ var fontScaling=deviceData.textScaleFactor;
+ var notchInset=devieData.padding;
+ var noAnimations=deviceData.disableAnimations;
+ var contrast=deviceData.platformBrightness;
+
+
+*spacer(flex:2)
+row-da childler arasi sahenin olcusunu idare etmeye imkan verir;,
+
+*dismissible(child:ListTile(),backGround:Container(color:Colors.Green),key:ValueKey(myString),direction:DismissDirection.vertical,)
+ ListView.builder(itemCount:items.lenght,
+ itemBuilder:(context,index){
+    setState(){items.removeAt(index);}
+ },)
+ --------------------------------------
+ dismissible(secondaryBackground:Container(color:,child:Icon(Icons.cancel),),)
+
+
+ 
+
+
+
+

@@ -1,0 +1,16 @@
+ [DllImport("d:\\Project1.dll",
+            CallingConvention = CallingConvention.StdCall,
+            CharSet = CharSet.Ansi)]
+        public static extern
+            int Triple(int N);
+
+function Triple (N: Integer): Integer; stdcall;export;
+begin
+  try
+    Result := N * 3;
+  except
+    Result := -1;
+  end;
+end;
+
+exports Triple;

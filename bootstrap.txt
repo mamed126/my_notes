@@ -1,0 +1,13 @@
+div-container,row,column classes;
+div-jumbotron class //site header ucun istf edile biler;
+
+table-table,table-striped,table-hover, classws;
+table->tr table-danger ves s. classes ;
+
+div-> dropdown class;
+button -> dropdown-toggle class, data-toggle attribute;
+
+select->option tagleri (combobox ucun);
+
+ul tag ve list-group class;
+li tag ve list-group-item class;

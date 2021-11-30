@@ -1,0 +1,24 @@
+1.$ git config --global user.name "mamed126"
+
+2.git config --global user.email "mamed126@mail.ru"
+
+3.cd e:/flutter_src/youtube_clone
+
+4.git init
+
+5.git add
+
+6.git commit -m "first message"
+
+7. git remote add origin https://github.com/mamed126/youtube_clone.git
+
+8.git push -u origin master
+------------------adding changes to repo------------------
+
+9.git status
+
+10.git add
+
+11.git commit -m "new_message"
+
+12.git push
