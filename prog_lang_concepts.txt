@@ -1,0 +1,24 @@
+types
+converting
+string operations
+loops
+collections
+generics
+functions,optional parameters
+
+
+class
+access modifiers
+getter,setters
+constructors
+inheritance
+abstraction->interface,abstact class
+overriding
+overloading
+
+exception handling
+async elements
+
+js,tscript,dart,c#
+
+
