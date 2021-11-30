@@ -1,1 +1,7 @@
-test
+[2021.11.30]
+[Clean architecture]
+{
+-template: https://github.com/ardalis/cleanarchitecture
+-eShopOnWebSample: https://github.com/dotnet-architecture/eshoponweb
+-book: https://dotnet.microsoft.com/learn/web/aspnet-architecture
+}
