@@ -1,0 +1,1 @@
+C:\Users\mamed1>sqlcmd -S 10.124.132.13 -U Soc314159ial  -P "zX&3y8018Ty" -d Inventory_Test -i c:\tmp\22_sql.sql
