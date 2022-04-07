@@ -1,3 +1,7 @@
+[2022.04.07]
+[Editor for large text files]
+emEditor
+
 [2021.11.30]
 [Clean architecture]
 {
