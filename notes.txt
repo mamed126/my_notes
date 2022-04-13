@@ -1,11 +1,22 @@
+[13.04.2022]
+[Encrypt connection string]
+==================================================================================
+C:\Windows\Microsoft.NET\Framework\v4.0.30319>
+ASPNET_REGIIS -pef "connectionStrings" "C:\inetpub\wwwroot\pos-terminal-publish"
+==================================================================================
+
 [2022.04.07]
 [Editor for large text files]
+==================================================================================
 emEditor
+==================================================================================
 
 [2021.11.30]
 [Clean architecture]
+==================================================================================
 {
 -template: https://github.com/ardalis/cleanarchitecture
 -eShopOnWebSample: https://github.com/dotnet-architecture/eshoponweb
 -book: https://dotnet.microsoft.com/learn/web/aspnet-architecture
 }
+==================================================================================
