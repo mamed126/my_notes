@@ -1,3 +1,6 @@
+[15.04.2022]
+[Task Scheduler execute link with .bat file]
+powershell Invoke-WebRequest -Uri "http://mbns.asb.az/home/check/"
 [13.04.2022]
 [Encrypt connection string]
 ==================================================================================
