@@ -1,0 +1,83 @@
+USE [test_db]
+GO
+/****** Object:  UserDefinedTableType [dbo].[TestType]    Script Date: 07.06.2022 16:09:58 ******/
+CREATE TYPE [dbo].[TestType] AS TABLE(
+	[Id] [int] NULL,
+	[Name] [varchar](100) NULL
+)
+GO
+/****** Object:  Table [dbo].[SessionInfo]    Script Date: 07.06.2022 16:09:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SessionInfo](
+	[HasActiveSession] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TestData]    Script Date: 07.06.2022 16:09:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TestData](
+	[Id] [int] NULL,
+	[Name] [varchar](100) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  StoredProcedure [dbo].[AddTestData]    Script Date: 07.06.2022 16:09:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[AddTestData] @Id   INT, 
+@Name VARCHAR(100)
+as
+insert into TestData(Id,Name)values(@Id,@Name)
+
+GO
+/****** Object:  StoredProcedure [dbo].[AddTestDatas]    Script Date: 07.06.2022 16:09:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE proc [dbo].[AddTestDatas] @p dbo.TestType readonly
+as
+ declare @hasActiveSes bit='1';
+
+ select @hasActiveSes= HasActiveSession from SessionInfo
+
+DECLARE @id int;
+DECLARE @name VARCHAR(100);
+ 
+-- declare cursor
+DECLARE cursor_test CURSOR FOR
+  SELECT Id,[Name]
+  FROM @p
+
+
+
+ if(@hasActiveSes=0)
+ begin
+ update SessionInfo set HasActiveSession=1
+ -- open cursor
+OPEN cursor_test;
+ 
+-- loop through a cursor
+FETCH NEXT FROM cursor_test INTO @id,@name;
+WHILE @@FETCH_STATUS = 0
+    BEGIN
+	exec AddTestData @id,@name
+    FETCH NEXT FROM cursor_test INTO @id,@name;
+    END;
+ 
+-- close and deallocate cursor
+CLOSE cursor_test;
+DEALLOCATE cursor_test;
+ update SessionInfo set HasActiveSession=0
+ end
+ else
+ print 'has active session'
+GO
