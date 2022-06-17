@@ -1,3 +1,12 @@
+[17.06.22]
+[Sql: sp_executesql with parameters, unicode character parameter]
+
+declare @x nvarchar(max)=N'ə';
+DECLARE @params NVARCHAR(4000) = '@x NVARCHAR(255)';
+declare @q nvarchar(max) =N'select @x'
+
+EXEC sp_executesql @q,@params,@x
+
 [13.04.2022]
 [command file execute from cmd]
 ======================================================================================================================================
