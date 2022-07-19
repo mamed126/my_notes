@@ -1,0 +1,67 @@
+//best removing dublicates method
+public string[] IterationAndSwappingElements(string[] arrayWithDuplicateValues)
+{
+    var size = arrayWithDuplicateValues.Length;
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = i + 1; j < size; j++)
+        {
+            if (arrayWithDuplicateValues[i] == arrayWithDuplicateValues[j])
+            {
+                size--;
+                arrayWithDuplicateValues[j] = arrayWithDuplicateValues[size];
+                j--;
+            }
+        }
+    }
+    return arrayWithDuplicateValues[0..size];
+}
+
+//compare arrays
+return Enumerable.SequenceEqual(articleArray, articleArrayCopy, new Article());
+
+//get maximum
+public int GetLargestElementUsingFor(int[] sourceArray)
+{
+    int maxElement = sourceArray[0];
+    for (int index = 1; index < sourceArray.Length; index++)
+    {
+        if (sourceArray[index] > maxElement)
+            maxElement = sourceArray[index];
+    }
+    return maxElement;
+}
+
+//remove dublicates from list
+var listWithoutDuplicates = new List<T>();
+foreach (T item in listWithDuplicates)
+{
+    if (!listWithoutDuplicates.Contains(item)) //we can also use !listWithoutDuplicates.Any(x => x.Equals(item))
+    {
+        listWithoutDuplicates.Add(item);
+    }
+}
+
+//sort-list-by-object-property
+public class Book : IComparable<Book>
+{
+    public string Title { get; set; }
+    public string Author { get; set; }
+    public int Pages { get; set; }
+    public int CompareTo(Book other)
+    {
+        if (other == null)
+            return 1;
+        if (this.Pages > other.Pages)
+            return 1;
+        else if (this.Pages < other.Pages)
+            return -1;
+        else
+            return 0;
+    }
+}
+
+_books.Sort();
+CollectionAssert.AreEqual(_booksSortedPages, _books);
+
+//
